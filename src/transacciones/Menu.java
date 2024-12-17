@@ -33,7 +33,7 @@ public class Menu {
             int opc = 0;
             opc = Integer.parseInt(showInputDialog(null, "Seleccione una opción\n"
                     + "\n"
-                    + "     1 - Inicio Sesion\n"
+                    + "     1 - Inicio Sesión\n"
                     + "\n"
                     + "     2 - Registrar Usuario\n"
                     + "\n"
@@ -91,7 +91,7 @@ public class Menu {
                     + "\n"
                     + "     5 - Salir\n"
                     + "\n"
-                    + "\n", "Menú de usuarios", JOptionPane.WARNING_MESSAGE));
+                    + "\n", "Menú de Operaciones", JOptionPane.WARNING_MESSAGE));
 
             switch (opc) {
                 case 1: {
@@ -348,9 +348,9 @@ public class Menu {
                     // + "\nTotal de Cajas " + bancoConfig.getTotalCajas());
                     MenuReportes();
                 case 2:
-                    Reportes reportes = new Reportes();
-                    reportes.mostrarHistorial("Historial.txt");
-                    //reportes.mostrarReporteColas(colas);
+                     JOptionPane.showMessageDialog(null,"El total de Clientes ya atendidos es: " + historial.getSize() + "\n" +
+                             "El total de clientes siendo atendidos es: " + (cajaRegular.getSize() + cajaRapida.getSize() + cajaPreferencial.getSize()), "Total de Clientes", JOptionPane.WARNING_MESSAGE);
+
                     MenuReportes();
                     break;
                 case 3:
@@ -364,7 +364,7 @@ public class Menu {
                     MenuReportes();
                     break;
                 case 5:
-                    MenuReportes();
+                    MenuSecundario();
                     break;
                 default: {
                     JOptionPane.showMessageDialog(null, "Opcion seleccionada no es válida, verifique e intente nuevamente");

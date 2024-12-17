@@ -1,1 +1,4 @@
-**************No hay tiquetes********************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Alberto, ID=26, Edad=32, Tramite=3, Tramite2=0, Tipo=2, Hora Creación=2024-12-17T00:37:09.586507, Hora Atención=2024-12-17T00:37:09.586535, Caja Asignada=4]
+
+***********************************************

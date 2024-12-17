@@ -2,3 +2,7 @@
 Tiquete [Nombre=Adry, ID=25, Edad=32, Tramite=1, Tramite2=0, Tipo=1, Hora Creación=2024-12-16T23:32:21.509056, Hora Atención=2024-12-16T23:37:26.560262, Caja Asignada=2]
 
 ***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Missy, ID=27, Edad=6, Tramite=2, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T00:44:42.196782, Hora Atención=-999999999-01-01T00:00, Caja Asignada=2]
+
+***********************************************
