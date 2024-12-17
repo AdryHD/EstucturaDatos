@@ -11,10 +11,6 @@ Tiquete [Nombre=oscar, ID=30, Edad=25, Tramite=1, Tramite2=0, Tipo=1, Hora Creac
 
 ***********************************************
 **************Nuevo Tiquete********************
-null
-
-***********************************************
-**************Nuevo Tiquete********************
 Tiquete [Nombre=Alberto, ID=26, Edad=32, Tramite=3, Tramite2=0, Tipo=2, Hora Creación=2024-12-17T00:37:09.586507, Hora Atención=2024-12-17T00:37:09.586535, Caja Asignada=4]
 
 ***********************************************
@@ -24,5 +20,13 @@ Tiquete [Nombre=oscarr, ID=31, Edad=25, Tramite=3, Tramite2=0, Tipo=2, Hora Crea
 ***********************************************
 **************Nuevo Tiquete********************
 Tiquete [Nombre=Happy, ID=28, Edad=12, Tramite=3, Tramite2=0, Tipo=3, Hora Creación=2024-12-17T00:45:05.366696, Hora Atención=2024-12-17T00:45:05.366724, Caja Asignada=5]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=oscar, ID=32, Edad=2, Tramite=2, Tramite2=0, Tipo=2, Hora Creación=2024-12-17T17:06:21.472789, Hora Atención=2024-12-17T17:06:21.472818, Caja Asignada=4]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=andres, ID=33, Edad=2, Tramite=1, Tramite2=0, Tipo=2, Hora Creación=2024-12-17T17:06:30.070669, Hora Atención=2024-12-17T17:06:35.963830, Caja Asignada=4]
 
 ***********************************************

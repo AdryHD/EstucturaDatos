@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
@@ -103,7 +102,6 @@ public class TipoCambio {
             JOptionPane.showMessageDialog(null, mensaje);
 
         } catch (Exception e) {
-            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error al procesar el XML: " + e.getMessage());
         }
     }

@@ -418,6 +418,10 @@ public class Menu {
     }
 
     public void atiendeTiquete(Cola cola) {
+        if (cola.esVacia()) {
+        JOptionPane.showMessageDialog(null, "Ya no hay más tiquetes que atender");
+    } else {
+        
         Tiquete t = new Tiquete();
         historial.encola(cola.getNodo());
         t = cola.atiende();
@@ -426,4 +430,5 @@ public class Menu {
         //System.out.println(historial.toString());
     }
 
+}
 }
