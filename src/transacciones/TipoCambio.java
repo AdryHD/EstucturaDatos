@@ -15,29 +15,33 @@ import javax.swing.JOptionPane;
 
 public class TipoCambio {
 
-    public static void obtenerIndicadoresEconomicos(String indicador, String fechaInicio, String fechaFinal,
-            String nombre, String subNiveles, String correo, String token) {
+    private static final String HOST = "https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx/ObtenerIndicadoresEconomicosXML";
+    private String url;
+
+    private void setUrl(String indicador, String fechaInicio, String fechaFinal, String nombre, String subNiveles, String correo, String token) {
+
+        String params = "Indicador=" + indicador
+                + "&FechaInicio=" + fechaInicio
+                + "&FechaFinal=" + fechaFinal
+                + "&Nombre=" + nombre
+                + "&SubNiveles=" + subNiveles
+                + "&CorreoElectronico=" + correo
+                + "&Token=" + token;
+
+        this.url = HOST + "?" + params;
+    }
+
+    
+    public void obtenerIndicadoresEconomicos(String indicador, String fechaInicio, String fechaFinal, String nombre, String subNiveles, String correo, String token) {
         try {
-            // URL con parametros correctos para consultar al servidor del BCCR
-            String urlParams = String.format(
-                    "/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx/ObtenerIndicadoresEconomicosXML?"
-                    + "Indicador=%s&FechaInicio=%s&FechaFinal=%s&Nombre=%s&SubNiveles=%s&CorreoElectronico=%s&Token=%s",
-                    URLEncoder.encode(indicador, "UTF-8"),
-                    URLEncoder.encode(fechaInicio, "UTF-8"),
-                    URLEncoder.encode(fechaFinal, "UTF-8"),
-                    URLEncoder.encode(nombre, "UTF-8"),
-                    URLEncoder.encode(subNiveles, "UTF-8"),
-                    URLEncoder.encode(correo, "UTF-8"),
-                    URLEncoder.encode(token, "UTF-8")
-            );
+            // Configurar la URL antes de usarla
+            setUrl(indicador, fechaInicio, fechaFinal, nombre, subNiveles, correo, token);
 
-           
-            String urlCompleta = "https://gee.bccr.fi.cr" + urlParams;
-            System.out.println("URL completa: " + urlCompleta);
+            System.out.println("URL generada: " + url);
 
-            // Solicitud con HTTP GET
-            URL url = new URL(urlCompleta);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            // Realizar la solicitud HTTP GET
+            URL urlObj = new URL(this.url);
+            HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
             connection.setRequestMethod("GET");
 
             int responseCode = connection.getResponseCode();
@@ -51,12 +55,12 @@ public class TipoCambio {
                 }
                 in.close();
 
-           //Respuesta del BCCR por consola
-                System.out.println("Respuesta del servidor: " + response.toString());
-
-                // Procesar la respuesta XML con metodo parsearXml
+                // Respuesta del servidor
                 String xml = response.toString().replaceAll("&lt;", "<").replaceAll("&gt;", ">");
-                parsearXml(xml,indicador);
+                System.out.println("Respuesta del servidor: " + xml);
+
+                // Procesar la respuesta XML
+                parsearXml(xml, indicador);
             } else {
                 throw new RuntimeException("HTTP Error: " + responseCode);
             }
@@ -69,13 +73,12 @@ public class TipoCambio {
 
     public static void parsearXml(String xml, String indicador) {
         try {
-         
+
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             InputSource is = new InputSource(new StringReader(xml));
             Document doc = builder.parse(is);
 
-            
             NodeList nodeList = doc.getElementsByTagName("NUM_VALOR");
             String tipoDeCambio = "No encontrado";
             if (nodeList.getLength() > 0) {
@@ -96,7 +99,6 @@ public class TipoCambio {
                 tipoDeCambioTexto = "Tipo de Cambio Venta";
             }
 
-          
             String mensaje = tipoDeCambioTexto + ": " + tipoDeCambio + "\nFecha: " + fecha;
             JOptionPane.showMessageDialog(null, mensaje);
 

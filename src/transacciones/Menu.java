@@ -114,16 +114,19 @@ public class Menu {
                     String nombre = "Oscar";
                     String subNiveles = "N";
                     String correo = "cascante_98@outlook.com";
-                    String token = "2CO1T4024C"; //Token generado con suscripcion 
+                    String token = "2CO1T4024C"; // Token generado con suscripción 
 
-                   
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     String fechaInicio = sdf.format(new Date());
                     String fechaFinal = sdf.format(new Date());
 
-                   //Solicita al servidor Compra y venta
-                    TipoCambio.obtenerIndicadoresEconomicos(indicador1, fechaInicio, fechaFinal, nombre, subNiveles, correo, token);
-                    TipoCambio.obtenerIndicadoresEconomicos(indicador2, fechaInicio, fechaFinal, nombre, subNiveles, correo, token);
+
+                    TipoCambio tipoCambio = new TipoCambio();
+
+
+                    tipoCambio.obtenerIndicadoresEconomicos(indicador1, fechaInicio, fechaFinal, nombre, subNiveles, correo, token);
+                    tipoCambio.obtenerIndicadoresEconomicos(indicador2, fechaInicio, fechaFinal, nombre, subNiveles, correo, token);
+
                     break;
                 case 5: {
                     bancoConfig.guardarConfiguracion();
