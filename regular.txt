@@ -1,12 +1,4 @@
 **************Nuevo Tiquete********************
-Tiquete [Nombre=Adry, ID=21, Edad=36, Tramite=1, Tramite2=2, Tipo=1, Hora Creación=2024-12-15T21:21:42.789585, Hora Atención=2024-12-15T21:21:42.789616, Caja Asignada=1]
-
-***********************************************
-**************Nuevo Tiquete********************
-Tiquete [Nombre=Eddy, ID=22, Edad=36, Tramite=3, Tramite2=2, Tipo=1, Hora Creación=2024-12-15T21:21:59.888057, Hora Atención=-999999999-01-01T00:00, Caja Asignada=2]
-
-***********************************************
-**************Nuevo Tiquete********************
-Tiquete [Nombre=Champo, ID=23, Edad=2, Tramite=2, Tramite2=0, Tipo=1, Hora Creación=2024-12-15T21:22:14.123724, Hora Atención=-999999999-01-01T00:00, Caja Asignada=2]
+Tiquete [Nombre=Adry, ID=25, Edad=32, Tramite=1, Tramite2=0, Tipo=1, Hora Creación=2024-12-16T23:32:21.509056, Hora Atención=2024-12-16T23:37:26.560262, Caja Asignada=2]
 
 ***********************************************

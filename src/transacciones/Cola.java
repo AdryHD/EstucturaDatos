@@ -2,6 +2,7 @@ package transacciones;
 
 import datos.Nodo;
 import datos.Tiquete;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -32,7 +33,7 @@ public class Cola {
         return 1;
     }
 
-    public int atiende() {
+   /* public int atiende() {
         if (!this.esVacia()) {
             if (prim == ult) {
                 prim = ult = null;
@@ -44,7 +45,13 @@ public class Cola {
         } else {
             return -1;//cola es vacia
         }
-    }
+    }*/
+    
+    public Tiquete atiende(){
+      Tiquete firstTiquete = prim.getNumDato(); // obtiene el primer tiquete de la cola
+      firstTiquete.setHoraAtencion(LocalDateTime.now());
+      return firstTiquete;
+        }
 
     public boolean encontrar(int n) {
         if (this.esVacia()) {

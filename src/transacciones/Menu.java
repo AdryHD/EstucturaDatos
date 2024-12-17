@@ -18,16 +18,15 @@ public class Menu {
 
     LoginUsuarios login = new LoginUsuarios("usuarios.txt");
     BancoConfig bancoConfig = new BancoConfig("prod.txt");
-    
+
     Cola cajaRapida = new Cola();
     Cola cajaPreferencial = new Cola();
     Cola cajaRegular = new Cola();
-
-  
+    Cola historial = new Cola();
 
     public void MenuPrincipal() {
-        try {                
-             
+        try {
+
             // Carga configuracion
             if (!bancoConfig.cargarConfiguracion()) {
                 // Si no existe, llama metodo para configurar por primera vez
@@ -60,8 +59,8 @@ public class Menu {
                     MenuPrincipal();
                     break;
                 case 3: {
-                   // bancoConfig.guardarConfiguracion();
-                   // bancoConfig.escribirColaEnArchivo("regular.txt", cajaRegular);
+                    // bancoConfig.guardarConfiguracion();
+                    // bancoConfig.escribirColaEnArchivo("regular.txt", cajaRegular);
                     //bancoConfig.escribirColaEnArchivo("preferencial.txt", cajaPreferencial);
                     //bancoConfig.escribirColaEnArchivo("rapida.txt", cajaRapida);
                     System.exit(0);
@@ -91,7 +90,9 @@ public class Menu {
                     + "\n"
                     + "     3 - Tiquete Atendido\n"
                     + "\n"
-                    + "     4 - Salir\n"
+                    + "     4 - Consultar Tipo de Cambio\n"
+                    + "\n"
+                    + "     5 - Salir\n"
                     + "\n"
                     + "\n", "Menú de usuarios", JOptionPane.WARNING_MESSAGE));
 
@@ -106,16 +107,68 @@ public class Menu {
                     MenuReportes();
                     break;
                 case 3:
+                    menuAtiende();
                     break;
-                case 4: {
+                case 4:
+                    break;
+                case 5: {
                     bancoConfig.guardarConfiguracion();
                     System.out.println("Guardando colas");
                     bancoConfig.escribirColaEnArchivo("regular.txt", cajaRegular);
                     bancoConfig.escribirColaEnArchivo("preferencial.txt", cajaPreferencial);
                     bancoConfig.escribirColaEnArchivo("rapida.txt", cajaRapida);
+                    bancoConfig.escribirColaEnArchivo("historial.txt", historial);
                     MenuPrincipal();
                 }
                 break;
+                default: {
+                    JOptionPane.showMessageDialog(null, "Opcion seleccionada no es válida, verifique e intente nuevamente");
+                    MenuSecundario();
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Digite una de las opciones válidas, verifique e intente nuevamente");
+            MenuSecundario();
+        }
+
+    }
+
+    public void menuAtiende() {
+        try {
+            int opc = 0;
+
+            opc = Integer.parseInt(showInputDialog(null, "Seleccione el tipo de caja\n"
+                    + "\n"
+                    + "     1 - Caja Regular\n"
+                    + "\n"
+                    + "     2 - Caja Rapida\n"
+                    + "\n"
+                    + "     3 - Caja Preferencial\n"
+                    + "\n"
+                    + "     4 - Salir\n"
+                    + "\n"
+                    + "\n", "Atención de tiquetes", JOptionPane.WARNING_MESSAGE));
+
+            switch (opc) {
+                case 1: {
+                    atiendeTiquete(cajaRegular);
+                    menuAtiende();
+                }
+                break;
+                case 2: {
+                    atiendeTiquete(cajaRapida);
+                    menuAtiende();
+                }
+                break;
+                case 3: {
+                    atiendeTiquete(cajaPreferencial);
+                    menuAtiende();
+                }
+                break;
+                case 4:
+                    MenuSecundario();
+
+                    break;
                 default: {
                     JOptionPane.showMessageDialog(null, "Opcion seleccionada no es válida, verifique e intente nuevamente");
                     MenuSecundario();
@@ -191,7 +244,7 @@ public class Menu {
                         tiquete.setCajaAsignada(1);
                     } else {
                         tiquete.setCajaAsignada(2);
-                          tiquete.setHoraAtencion(LocalDateTime.MIN);
+                        tiquete.setHoraAtencion(LocalDateTime.MIN);
                     }/*
                         for (int i = 0; i < cajaRegular.getSize(); i++) {
                             for (int j = 0; j < bancoConfig.getTotalCajas(); j++) {
@@ -288,7 +341,9 @@ public class Menu {
                     + "\n"
                     + "     3 - Reporte Cajas\n"
                     + "\n"
-                    + "     4 - Salir\n"
+                    + "     4 - Tiempo Promedio de Atención\n"
+                    + "\n"
+                    + "     5 - Salir\n"
                     + "\n"
                     + "\n", "Menú de Reportes", JOptionPane.WARNING_MESSAGE));
 
@@ -301,17 +356,27 @@ public class Menu {
                     // + "\nTotal de Cajas " + bancoConfig.getTotalCajas());
                     MenuReportes();
                 case 2:
+                    Reportes reportes = new Reportes();
+                    reportes.mostrarHistorial("Historial.txt");
+                    //reportes.mostrarReporteColas(colas);
                     MenuReportes();
                     break;
                 case 3:
+                    //Reportes reportes = new Reportes();
+                    //reportes.cajaMayorClientesPorArchivos("CajaPreferencial.txt", "CajaRapida.txt", "CajaRegular.txt");
                     MenuReportes();
                     break;
                 case 4:
-                    MenuSecundario();
+                    //Reportes reportes = new Reportes();
+                    //reportes.tiempoPromedioAtencion("Historial.txt");
+                    MenuReportes();
+                    break;
+                case 5:
+                    MenuReportes();
                     break;
                 default: {
                     JOptionPane.showMessageDialog(null, "Opcion seleccionada no es válida, verifique e intente nuevamente");
-                    MenuSecundario();
+                    MenuReportes();
                 }
             }
 
@@ -320,18 +385,31 @@ public class Menu {
             MenuReportes();
         }
     }
-    
-    public void cargarColas(){
-     //System.out.println("Cola al leer del txt");
-                System.out.println("*************************");
-                bancoConfig.crearCola("regular.txt", cajaRegular);
-                System.out.println(cajaRegular.toString());
-                System.out.println("*************************");
-                bancoConfig.crearCola("preferencial.txt", cajaPreferencial);
-                System.out.println(cajaPreferencial.toString());
-                System.out.println("*************************");
-                bancoConfig.crearCola("rapida.txt", cajaRapida);
-                System.out.println(cajaRapida.toString());
-                System.out.println("*************************");}
-      
+
+    public void cargarColas() {
+        //System.out.println("Cola al leer del txt");
+        System.out.println("*********Regular*********************");
+        bancoConfig.crearCola("regular.txt", cajaRegular);
+        System.out.println(cajaRegular.toString());
+        System.out.println("*********Rapida**********************");
+        bancoConfig.crearCola("rapida.txt", cajaRapida);
+        System.out.println(cajaRapida.toString());
+        System.out.println("*********Preferencial****************");
+        bancoConfig.crearCola("preferencial.txt", cajaPreferencial);
+        System.out.println(cajaPreferencial.toString());
+        System.out.println("*********Historial*******************");
+        bancoConfig.crearCola("historial.txt", historial);
+        System.out.println(historial.toString());
+        System.out.println("*************************************");
+    }
+
+    public void atiendeTiquete(Cola cola) {
+        Tiquete t = new Tiquete();
+        historial.encola(cola.getNodo());
+        t = cola.atiende();
+        JOptionPane.showMessageDialog(null, "Atendiendo al tiquete #" + t.getId()+",\n a nombre de: "+t.getNombre());
+
+        System.out.println(historial.toString());
+    }
+
 }
