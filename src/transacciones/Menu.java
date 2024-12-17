@@ -1,4 +1,3 @@
-
 package transacciones;
 
 import datos.Tiquete;
@@ -6,6 +5,7 @@ import transacciones.BancoConfig;
 import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showInputDialog;
+import transacciones.Reportes;
 
 /**
  *
@@ -322,6 +322,7 @@ public class Menu {
     }
 
     public void MenuReportes() {
+        Reportes reportes = new Reportes();
         try {
             int opc = 0;
 
@@ -348,8 +349,8 @@ public class Menu {
                     // + "\nTotal de Cajas " + bancoConfig.getTotalCajas());
                     MenuReportes();
                 case 2:
-                     JOptionPane.showMessageDialog(null,"El total de Clientes ya atendidos es: " + historial.getSize() + "\n" +
-                             "El total de clientes siendo atendidos es: " + (cajaRegular.getSize() + cajaRapida.getSize() + cajaPreferencial.getSize()), "Total de Clientes", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "El total de Clientes ya atendidos es: " + historial.getSize() + "\n"
+                            + "El total de clientes siendo atendidos es: " + (cajaRegular.getSize() + cajaRapida.getSize() + cajaPreferencial.getSize()), "Total de Clientes", JOptionPane.WARNING_MESSAGE);
 
                     MenuReportes();
                     break;
@@ -359,8 +360,9 @@ public class Menu {
                     MenuReportes();
                     break;
                 case 4:
-                    //Reportes reportes = new Reportes();
-                    //reportes.tiempoPromedioAtencion("Historial.txt");
+                    //Hay un error en el metodo tiempoAtencion
+                    //System.out.println(reportes.tiempoAtencion(historial));
+                    //JOptionPane.showMessageDialog(null, "El tiempo promedio de atención es: " + reportes.tiempoAtencion(historial) / historial.getSize() + "\n", "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
                     MenuReportes();
                     break;
                 case 5:
@@ -399,7 +401,7 @@ public class Menu {
         Tiquete t = new Tiquete();
         historial.encola(cola.getNodo());
         t = cola.atiende();
-        JOptionPane.showMessageDialog(null, "Atendiendo al tiquete #" + t.getId()+",\n a nombre de: "+t.getNombre());
+        JOptionPane.showMessageDialog(null, "Atendiendo al tiquete #" + t.getId() + ",\n a nombre de: " + t.getNombre());
 
         //System.out.println(historial.toString());
     }

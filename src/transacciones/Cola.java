@@ -33,20 +33,6 @@ public class Cola {
         return 1;
     }
 
-   /* public int atiende() {
-        if (!this.esVacia()) {
-            if (prim == ult) {
-                prim = ult = null;
-            } else {
-                prim = prim.getSig();
-            }
-            cant -= 1;
-            return 1;
-        } else {
-            return -1;//cola es vacia
-        }
-    }*/
-    
     public Tiquete atiende(){
       Tiquete firstTiquete = prim.getNumDato(); // obtiene el primer tiquete de la cola
       firstTiquete.setHoraAtencion(LocalDateTime.now());
