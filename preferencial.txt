@@ -1,4 +1,1 @@
-**************Nuevo Tiquete********************
-Tiquete [Nombre=Happy, ID=28, Edad=12, Tramite=3, Tramite2=0, Tipo=3, Hora Creación=2024-12-17T00:45:05.366696, Hora Atención=2024-12-17T00:45:05.366724, Caja Asignada=5]
-
-***********************************************
+**************No hay tiquetes********************

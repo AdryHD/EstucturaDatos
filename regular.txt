@@ -1,8 +1,1 @@
-**************Nuevo Tiquete********************
-Tiquete [Nombre=Missy, ID=27, Edad=6, Tramite=2, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T00:44:42.196782, Hora Atención=2024-12-17T01:40:00.094289, Caja Asignada=2]
-
-***********************************************
-**************Nuevo Tiquete********************
-Tiquete [Nombre=Maria, ID=29, Edad=36, Tramite=2, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T01:39:33.135539, Hora Atención=-999999999-01-01T00:00, Caja Asignada=2]
-
-***********************************************
+**************No hay tiquetes********************
