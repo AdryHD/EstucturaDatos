@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package transacciones;
 
 import datos.Tiquete;
@@ -210,9 +207,7 @@ public class Menu {
         }
         tiquete.setTipo(opc);
         opc = 0;
-        //System.out.println("ID que viene del config al iniciar " + bancoConfig.getTiqueteID());
         tiquete.setNombre(JOptionPane.showInputDialog(null, "Ingrese su nombre: ", "Crear Tiquete", JOptionPane.WARNING_MESSAGE));
-        //System.out.println(tiquete.getNombre());
         tiquete.setId(bancoConfig.getTiqueteID() + 1);
         bancoConfig.setTiqueteID(tiquete.getId());
         tiquete.setEdad(Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese su edad: ", "Crear Tiquete", JOptionPane.WARNING_MESSAGE)));
@@ -312,21 +307,18 @@ public class Menu {
                     break;
                 }
             }
-
-            // System.out.println("ID tiquete creado " + tiquete.getId());
-            //System.out.println("ID que viene del config luego de crear el tiquete " + bancoConfig.getTiqueteID());
         }
 
-        System.out.println("El tiquete");
+        System.out.println("El tiquete nuevo");
         System.out.println(tiquete);
         System.out.println("Contenido de La cola");
-        System.out.println("****************************************");
+        System.out.println("*********Regular***********************************");
         System.out.println(cajaRegular.toString());
-        System.out.println("****************************************");
+        System.out.println("*********Rapida************************************");
         System.out.println(cajaRapida.toString());
-        System.out.println("****************************************");
+        System.out.println("*********Preferencial******************************");
         System.out.println(cajaPreferencial.toString());
-        System.out.println("****************************************");
+        System.out.println("***************************************************");
     }
 
     public void MenuReportes() {
@@ -409,7 +401,7 @@ public class Menu {
         t = cola.atiende();
         JOptionPane.showMessageDialog(null, "Atendiendo al tiquete #" + t.getId()+",\n a nombre de: "+t.getNombre());
 
-        System.out.println(historial.toString());
+        //System.out.println(historial.toString());
     }
 
 }

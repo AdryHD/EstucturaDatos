@@ -114,11 +114,8 @@ public class BancoConfig {
     public void escribirColaEnArchivo(String nombreArchivo, Cola cola) {
          File file = new File(nombreArchivo);
          file.delete();
-        //System.out.println(cola.toString());
         if (cola.getSize() > 0) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo, true))) {
-
-               // System.out.println("Tamano de la cola: " + cola.getSize());
                 while (cola.getSize() > 0) {
                     writer.write("**************Nuevo Tiquete********************");
                     writer.newLine();
@@ -142,8 +139,6 @@ public class BancoConfig {
 
 
 public void crearCola(String nombreArchivo, Cola cola) {
-  //  System.out.println("Iniciando crearCola " + nombreArchivo);
-
     try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
         String line;
 
@@ -153,33 +148,23 @@ public void crearCola(String nombreArchivo, Cola cola) {
                 int endIndex = line.indexOf(']');
                 if (startIndex < endIndex) {
                     String content = line.substring(startIndex, endIndex);
-
-               
                     String nombre = "";
                     int id = 0, edad = 0, tramite = 0, tramite2 = 0, tipo = 0, cajaAsignada = 0;
                     LocalDateTime horaCreacion = null;
                     LocalDateTime horaAtencion = null;
-
-                    
                     int currentIndex = 0;
                     while (currentIndex < content.length()) {
                         int equalsIndex = content.indexOf('=', currentIndex);
                         if (equalsIndex == -1) break;
-
-                      
                         int keyStart = currentIndex;
                         int keyEnd = equalsIndex;
                         String key = content.substring(keyStart, keyEnd).trim();
-
-                      
                         int valueStart = equalsIndex + 1;
                         int commaIndex = content.indexOf(',', valueStart);
                         if (commaIndex == -1) {
                             commaIndex = content.length(); 
                         }
                         String value = content.substring(valueStart, commaIndex).trim();
-
-                       
                         switch (key) {
                             case "Nombre":
                                 nombre = value;
@@ -212,8 +197,6 @@ public void crearCola(String nombreArchivo, Cola cola) {
                             case "Caja Asignada":
                                 cajaAsignada = Integer.parseInt(value);
                                 break;
-                            default:
-                                System.err.println("Campo desconocido: " + key);
                         }
 
                         // Update index for the next iteration
@@ -231,8 +214,6 @@ public void crearCola(String nombreArchivo, Cola cola) {
                     tiquete.setHoraCreacion(horaCreacion);
                     tiquete.setHoraAtencion(horaAtencion);
                     tiquete.setCajaAsignada(cajaAsignada);
-
-                    //System.out.println("Agregando el tiquete a la cola: " + tiquete);
                     cola.encola(tiquete);
                 }
             }
