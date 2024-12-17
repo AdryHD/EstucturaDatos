@@ -31,7 +31,6 @@ public class TipoCambio {
         this.url = HOST + "?" + params;
     }
 
-    
     public void obtenerIndicadoresEconomicos(String indicador, String fechaInicio, String fechaFinal, String nombre, String subNiveles, String correo, String token) {
         try {
             // Configurar la URL antes de usarla
@@ -48,15 +47,16 @@ public class TipoCambio {
             if (responseCode == 200) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String inputLine;
-                StringBuilder response = new StringBuilder();
+
+                String xml = ""; 
 
                 while ((inputLine = in.readLine()) != null) {
-                    response.append(inputLine);
+                    xml += inputLine; 
                 }
                 in.close();
 
                 // Respuesta del servidor
-                String xml = response.toString().replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+                xml = xml.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
                 System.out.println("Respuesta del servidor: " + xml);
 
                 // Procesar la respuesta XML
@@ -67,7 +67,7 @@ public class TipoCambio {
 
         } catch (Exception e) {
             System.out.println("Error al obtener los indicadores económicos: " + e.getMessage());
-            e.printStackTrace();
+           
         }
     }
 
