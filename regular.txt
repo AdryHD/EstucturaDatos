@@ -1,1 +1,4 @@
-**************No hay tiquetes********************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Adriana, ID=32, Edad=35, Tramite=2, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T16:52:51.335116, Hora Atención=2024-12-17T16:52:51.335128, Caja Asignada=1]
+
+***********************************************

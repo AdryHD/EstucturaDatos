@@ -109,24 +109,8 @@ public class Menu {
                     menuAtiende();
                     break;
                 case 4:
-                    String indicador1 = "317"; // Compra
-                    String indicador2 = "318"; // Venta
-                    String nombre = "Oscar";
-                    String subNiveles = "N";
-                    String correo = "cascante_98@outlook.com";
-                    String token = "2CO1T4024C"; // Token generado con suscripción 
-
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    String fechaInicio = sdf.format(new Date());
-                    String fechaFinal = sdf.format(new Date());
-
-
-                    TipoCambio tipoCambio = new TipoCambio();
-
-
-                    tipoCambio.obtenerIndicadoresEconomicos(indicador1, fechaInicio, fechaFinal, nombre, subNiveles, correo, token);
-                    tipoCambio.obtenerIndicadoresEconomicos(indicador2, fechaInicio, fechaFinal, nombre, subNiveles, correo, token);
-
+                    obtenerTipoCambio();
+                    MenuSecundario();
                     break;
                 case 5: {
                     bancoConfig.guardarConfiguracion();
@@ -148,6 +132,21 @@ public class Menu {
             MenuSecundario();
         }
 
+    }
+
+    public void obtenerTipoCambio() {
+        String indicador1 = "317"; // Compra
+        String indicador2 = "318"; // Venta
+        String nombre = "Oscar";
+        String subNiveles = "N";
+        String correo = "cascante_98@outlook.com";
+        String token = "2CO1T4024C"; // Token generado con suscripción 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaInicio = sdf.format(new Date());
+        String fechaFinal = sdf.format(new Date());
+        TipoCambio tipoCambio = new TipoCambio();
+        tipoCambio.obtenerIndicadoresEconomicos(indicador1, fechaInicio, fechaFinal, nombre, subNiveles, correo, token);
+        tipoCambio.obtenerIndicadoresEconomicos(indicador2, fechaInicio, fechaFinal, nombre, subNiveles, correo, token);
     }
 
     public void menuAtiende() {
