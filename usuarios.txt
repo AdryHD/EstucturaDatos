@@ -1,0 +1,2 @@
+admin:admin
+usuario1:usuario1
