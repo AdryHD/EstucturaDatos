@@ -207,7 +207,6 @@ public class Menu {
         int reply = 0;
         try {
             do {
-
                 opc = Integer.parseInt(showInputDialog(null, "Seleccione una tipo de Caja\n"
                         + "\n"
                         + "     1 - Regular\n"
@@ -233,7 +232,6 @@ public class Menu {
         bancoConfig.setTiqueteID(tiquete.getId());
         tiquete.setEdad(Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese su edad: ", "Crear Tiquete", JOptionPane.WARNING_MESSAGE)));
         do {
-
             opc = Integer.parseInt(showInputDialog(null, "Seleccione una tipo de Tramite\n"
                     + "\n"
                     + "     1 - Depósito\n"
@@ -249,9 +247,7 @@ public class Menu {
         } while ((opc > 3) || (opc < 1));
         tiquete.setTramite(opc);
         opc = 0;
-
         tiquete.setHoraCreacion(LocalDateTime.now());
-
         if (creado == true) {
             switch (tiquete.getTipo()) {
                 case 1: {
@@ -262,12 +258,11 @@ public class Menu {
                         cajaMenor = 1;
                         menorValor = cajaRegular.getSize();
                         for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
-                            temp=0;
-                           temp=cajaRegular.encontrar(i);
-                              if (temp < menorValor) {
+                            temp = 0;
+                            temp = cajaRegular.encontrar(i);
+                            if (temp < menorValor) {
                                 menorValor = temp;
                                 cajaMenor = i;
-                                temp = 0;
                             }
                         }
                         tiquete.setCajaAsignada(cajaMenor);
@@ -363,7 +358,6 @@ public class Menu {
                             + "\nCajas regulares: " + bancoConfig.getTotalCajas()
                             + "\nCaja preferencial: " + bancoConfig.getPreferencialCaja()
                             + "\nCaja rápida: " + bancoConfig.getRapidaCaja());
-                    // + "\nTotal de Cajas " + bancoConfig.getTotalCajas());
                     MenuReportes();
                 case 2:
                     JOptionPane.showMessageDialog(null, "El total de Clientes ya atendidos es: " + historial.getSize() + "\n"
@@ -372,14 +366,24 @@ public class Menu {
                     MenuReportes();
                     break;
                 case 3:
-                    //Reportes reportes = new Reportes();
-                    //reportes.cajaMayorClientesPorArchivos("CajaPreferencial.txt", "CajaRapida.txt", "CajaRegular.txt");
+                    int cajaMayor = 1;
+                    int temp;
+                    int mayorValor = cajaRegular.getSize();
+                    for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
+                        temp = 0;
+                        temp = cajaRegular.encontrar(i);
+                        if (temp > mayorValor) {
+                            mayorValor = temp;
+                            cajaMayor = i;
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null, "La caja con mayor cantidad de clientes es la caja: " + cajaMayor + "\ny atendió un total de " + mayorValor + " Clientes");
                     MenuReportes();
                     break;
                 case 4:
                     //Hay un error en el metodo tiempoAtencion
-                  //  System.out.println(reportes.tiempoAtencion(historial));
-                  //  JOptionPane.showMessageDialog(null, "El tiempo promedio de atención es: " + reportes.tiempoAtencion(historial) + "\n", "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
+                    //  System.out.println(reportes.tiempoAtencion(historial));
+                    //  JOptionPane.showMessageDialog(null, "El tiempo promedio de atención es: " + reportes.tiempoAtencion(historial) + "\n", "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
                     MenuReportes();
                     break;
                 case 5:
@@ -419,13 +423,13 @@ public class Menu {
             JOptionPane.showMessageDialog(null, "Ya no hay más tiquetes que atender");
         } else {
 
-        Tiquete t = new Tiquete();
-        historial.encola(cola.getNodo());
-        t = cola.atiende();
-        JOptionPane.showMessageDialog(null, "Atendiendo al tiquete #" + t.getId() + ",\n a nombre de: " + t.getNombre());
+            Tiquete t = new Tiquete();
+            historial.encola(cola.getNodo());
+            t = cola.atiende();
+            JOptionPane.showMessageDialog(null, "Atendiendo al tiquete #" + t.getId() + ",\n a nombre de: " + t.getNombre());
 
-        //System.out.println(historial.toString());
+            //System.out.println(historial.toString());
+        }
+
     }
-
-}
 }
