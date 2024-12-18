@@ -207,7 +207,6 @@ public class Menu {
         int reply = 0;
         try {
             do {
-
                 opc = Integer.parseInt(showInputDialog(null, "Seleccione una tipo de Caja\n"
                         + "\n"
                         + "     1 - Regular\n"
@@ -233,7 +232,6 @@ public class Menu {
         bancoConfig.setTiqueteID(tiquete.getId());
         tiquete.setEdad(Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese su edad: ", "Crear Tiquete", JOptionPane.WARNING_MESSAGE)));
         do {
-
             opc = Integer.parseInt(showInputDialog(null, "Seleccione una tipo de Tramite\n"
                     + "\n"
                     + "     1 - Depósito\n"
@@ -249,9 +247,7 @@ public class Menu {
         } while ((opc > 3) || (opc < 1));
         tiquete.setTramite(opc);
         opc = 0;
-
         tiquete.setHoraCreacion(LocalDateTime.now());
-
         if (creado == true) {
             switch (tiquete.getTipo()) {
                 case 1: {
@@ -267,7 +263,6 @@ public class Menu {
                             if (temp < menorValor) {
                                 menorValor = temp;
                                 cajaMenor = i;
-                                //temp = 0;
                             }
                         }
                         tiquete.setCajaAsignada(cajaMenor);
@@ -363,7 +358,6 @@ public class Menu {
                             + "\nCajas regulares: " + bancoConfig.getTotalCajas()
                             + "\nCaja preferencial: " + bancoConfig.getPreferencialCaja()
                             + "\nCaja rápida: " + bancoConfig.getRapidaCaja());
-                    // + "\nTotal de Cajas " + bancoConfig.getTotalCajas());
                     MenuReportes();
                 case 2:
                     JOptionPane.showMessageDialog(null, "El total de Clientes ya atendidos es: " + historial.getSize() + "\n"
@@ -372,8 +366,18 @@ public class Menu {
                     MenuReportes();
                     break;
                 case 3:
-                    //Reportes reportes = new Reportes();
-                    //reportes.cajaMayorClientesPorArchivos("CajaPreferencial.txt", "CajaRapida.txt", "CajaRegular.txt");
+                    int cajaMayor = 1;
+                    int temp;
+                    int mayorValor = cajaRegular.getSize();
+                    for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
+                        temp = 0;
+                        temp = cajaRegular.encontrar(i);
+                        if (temp > mayorValor) {
+                            mayorValor = temp;
+                            cajaMayor = i;
+                        }
+                    }
+                    JOptionPane.showMessageDialog(null, "La caja con mayor cantidad de clientes es la caja: " + cajaMayor + "\ny atendió un total de " + mayorValor + " Clientes");
                     MenuReportes();
                     break;
                 case 4:
@@ -427,56 +431,5 @@ public class Menu {
             //System.out.println(historial.toString());
         }
 
-    }
-
-    public String obtenerCajaMejorTiempo() {
-        String respuesta = "No hay historial";
-        if (historial.getSize() == 0) {
-            JOptionPane.showMessageDialog(null, respuesta);
-        } else {
-
-            int cajaMenor = 1;
-            double menorValor = 1000;
-            double contadorTiempos = 0;
-            double promedio = 0;
-            int contador = 0;
-            for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
-                double temp = 0;
-                temp = historial.encontrarTiempoAtencion(i);
-                if (temp < menorValor) {
-                    menorValor = temp;
-                    cajaMenor = i;
-                }
-                contador++;
-                contadorTiempos += temp;
-                promedio = contadorTiempos / contador;
-            }
-            respuesta = "La caja mejor tiempo es: Caja: " + cajaMenor + " con un promedio de: " + promedio + " segundos.";
-            return respuesta;
-        }
-        return respuesta;
-    }
-
-    public String obtenerPromedioCajas() {
-        String respuesta = "No hay historial";
-        if (historial.getSize() == 0) {
-            JOptionPane.showMessageDialog(null, respuesta);
-        } else {
-
-            double sumaTiempos = 0;
-            double promedio = 0;
-            int contador = 0;
-            for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
-                double temp = 0;
-                temp = historial.encontrarTiempoAtencion(i);
-                sumaTiempos += temp;
-                contador++;
-
-                promedio = sumaTiempos / contador;
-            }
-            respuesta = "El promedio de atencion de todas las cajas es de: " + promedio + " segundos.";
-            return respuesta;
-        }
-        return respuesta;
     }
 }
