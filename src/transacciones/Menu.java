@@ -430,8 +430,6 @@ public class Menu {
             historial.encola(cola.getNodo());
             t = cola.atiende();
             JOptionPane.showMessageDialog(null, "Atendiendo al tiquete #" + t.getId() + ",\n a nombre de: " + t.getNombre());
-
-            //System.out.println(historial.toString());
         }
 
     }
