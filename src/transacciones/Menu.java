@@ -263,21 +263,8 @@ public class Menu {
                         menorValor = cajaRegular.getSize();
                         for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
                             temp=0;
-                           // System.out.println("Entra al primer for");
                            temp=cajaRegular.encontrar(i);
-                           /* for (int j = 0; j < cajaRegular.getSize(); j++) {
-                                // System.out.println("Entra al segundo for");
-                                if (cajaRegular.encontrar(i) == true) {
-                                   //  System.out.println("Entra al primer if " + i);
-                                    temp += 1;
-                                  //  System.out.println("temp dentro del if => " + temp);
-                                }
-                            }*/
-                             //System.out.println("temp antes del if => " + temp);
-                             //System.out.println("Menor Valor antes del if => " + menorValor);
-                            if (temp < menorValor) {
-                              //  System.out.println("Entra al segundo if, temp => " + temp);
-                              //  System.out.println("Menor Valor " + menorValor);
+                              if (temp < menorValor) {
                                 menorValor = temp;
                                 cajaMenor = i;
                                 temp = 0;
