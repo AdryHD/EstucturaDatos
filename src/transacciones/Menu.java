@@ -262,12 +262,12 @@ public class Menu {
                         cajaMenor = 1;
                         menorValor = cajaRegular.getSize();
                         for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
-                            temp=0;
-                           temp=cajaRegular.encontrar(i);
-                              if (temp < menorValor) {
+                            temp = 0;
+                            temp = cajaRegular.encontrar(i);
+                            if (temp < menorValor) {
                                 menorValor = temp;
                                 cajaMenor = i;
-                                temp = 0;
+                                //temp = 0;
                             }
                         }
                         tiquete.setCajaAsignada(cajaMenor);
@@ -378,8 +378,8 @@ public class Menu {
                     break;
                 case 4:
                     //Hay un error en el metodo tiempoAtencion
-                  //  System.out.println(reportes.tiempoAtencion(historial));
-                  //  JOptionPane.showMessageDialog(null, "El tiempo promedio de atención es: " + reportes.tiempoAtencion(historial) + "\n", "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
+                    //  System.out.println(reportes.tiempoAtencion(historial));
+                    //  JOptionPane.showMessageDialog(null, "El tiempo promedio de atención es: " + reportes.tiempoAtencion(historial) + "\n", "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
                     MenuReportes();
                     break;
                 case 5:
@@ -419,13 +419,64 @@ public class Menu {
             JOptionPane.showMessageDialog(null, "Ya no hay más tiquetes que atender");
         } else {
 
-        Tiquete t = new Tiquete();
-        historial.encola(cola.getNodo());
-        t = cola.atiende();
-        JOptionPane.showMessageDialog(null, "Atendiendo al tiquete #" + t.getId() + ",\n a nombre de: " + t.getNombre());
+            Tiquete t = new Tiquete();
+            historial.encola(cola.getNodo());
+            t = cola.atiende();
+            JOptionPane.showMessageDialog(null, "Atendiendo al tiquete #" + t.getId() + ",\n a nombre de: " + t.getNombre());
 
-        //System.out.println(historial.toString());
+            //System.out.println(historial.toString());
+        }
+
     }
 
-}
+    public String obtenerCajaMejorTiempo() {
+        String respuesta = "No hay historial";
+        if (historial.getSize() == 0) {
+            JOptionPane.showMessageDialog(null, respuesta);
+        } else {
+
+            int cajaMenor = 1;
+            double menorValor = 1000;
+            double contadorTiempos = 0;
+            double promedio = 0;
+            int contador = 0;
+            for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
+                double temp = 0;
+                temp = historial.encontrarTiempoAtencion(i);
+                if (temp < menorValor) {
+                    menorValor = temp;
+                    cajaMenor = i;
+                }
+                contador++;
+                contadorTiempos += temp;
+                promedio = contadorTiempos / contador;
+            }
+            respuesta = "La caja mejor tiempo es: Caja: " + cajaMenor + " con un promedio de: " + promedio + " segundos.";
+            return respuesta;
+        }
+        return respuesta;
+    }
+
+    public String obtenerPromedioCajas() {
+        String respuesta = "No hay historial";
+        if (historial.getSize() == 0) {
+            JOptionPane.showMessageDialog(null, respuesta);
+        } else {
+
+            double sumaTiempos = 0;
+            double promedio = 0;
+            int contador = 0;
+            for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
+                double temp = 0;
+                temp = historial.encontrarTiempoAtencion(i);
+                sumaTiempos += temp;
+                contador++;
+
+                promedio = sumaTiempos / contador;
+            }
+            respuesta = "El promedio de atencion de todas las cajas es de: " + promedio + " segundos.";
+            return respuesta;
+        }
+        return respuesta;
+    }
 }

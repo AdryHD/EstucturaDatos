@@ -2,8 +2,9 @@ package transacciones;
 
 import datos.Nodo;
 import datos.Tiquete;
+import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -58,6 +59,36 @@ public class Cola {
 
     }
     
+       public double encontrarTiempoAtencion(int n) {
+        double tiempoAtencionTotal = 0;
+        if (this.esVacia()) {
+            return 0;
+        } else {
+            Nodo aux = prim;
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS]");
+
+            while (aux != null) {
+                if (aux.getNumDato() != null && n == aux.getNumDato().getCajaAsignada()) {
+                    String horaAtencionStr = aux.getNumDato().getHoraAtencion();
+                    String horaCreacionStr = aux.getNumDato().getHoraCreacion();
+
+                    LocalDateTime horaCreacion;
+                    LocalDateTime horaAtencion;
+
+                    horaCreacion = LocalDateTime.parse(horaCreacionStr, formatter);
+                    horaAtencion = LocalDateTime.parse(horaAtencionStr, formatter);
+
+         
+                    Duration duration = Duration.between(horaCreacion, horaAtencion);
+                    tiempoAtencionTotal += duration.toSeconds();
+                }
+                aux = aux.getSig();
+            }
+
+            return tiempoAtencionTotal;
+        }
+    }
    
 
     public int eliminar(int n) {
