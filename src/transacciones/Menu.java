@@ -273,11 +273,11 @@ public class Menu {
                                   //  System.out.println("temp dentro del if => " + temp);
                                 }
                             }*/
-                             System.out.println("temp antes del if => " + temp);
-                             System.out.println("Menor Valor antes del if => " + menorValor);
+                             //System.out.println("temp antes del if => " + temp);
+                             //System.out.println("Menor Valor antes del if => " + menorValor);
                             if (temp < menorValor) {
-                                System.out.println("Entra al segundo if, temp => " + temp);
-                                System.out.println("Menor Valor " + menorValor);
+                              //  System.out.println("Entra al segundo if, temp => " + temp);
+                              //  System.out.println("Menor Valor " + menorValor);
                                 menorValor = temp;
                                 cajaMenor = i;
                                 temp = 0;
@@ -391,8 +391,8 @@ public class Menu {
                     break;
                 case 4:
                     //Hay un error en el metodo tiempoAtencion
-                    //System.out.println(reportes.tiempoAtencion(historial));
-                    //JOptionPane.showMessageDialog(null, "El tiempo promedio de atención es: " + reportes.tiempoAtencion(historial) / historial.getSize() + "\n", "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
+                  //  System.out.println(reportes.tiempoAtencion(historial));
+                  //  JOptionPane.showMessageDialog(null, "El tiempo promedio de atención es: " + reportes.tiempoAtencion(historial) + "\n", "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
                     MenuReportes();
                     break;
                 case 5:

@@ -3,6 +3,7 @@ package transacciones;
 import datos.Nodo;
 import datos.Tiquete;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 /**
  *
@@ -56,6 +57,8 @@ public class Cola {
         }
 
     }
+    
+   
 
     public int eliminar(int n) {
         if (this.esVacia()) {
