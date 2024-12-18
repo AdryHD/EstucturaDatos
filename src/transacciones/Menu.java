@@ -432,4 +432,55 @@ public class Menu {
         }
 
     }
+    
+        public String obtenerCajaMejorTiempo() {
+        String respuesta = "No hay historial";
+        if (historial.getSize() == 0) {
+            JOptionPane.showMessageDialog(null, respuesta);
+        } else {
+
+            int cajaMenor = 1;
+            double menorValor = 1000;
+            double contadorTiempos = 0;
+            double promedio = 0;
+            int contador = 0;
+            for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
+                double temp = 0;
+                temp = historial.encontrarTiempoAtencion(i);
+                if (temp < menorValor) {
+                    menorValor = temp;
+                    cajaMenor = i;
+                }
+                contador++;
+                contadorTiempos += temp;
+                promedio = contadorTiempos / contador;
+            }
+            respuesta = "La caja mejor tiempo es: Caja: " + cajaMenor + " con un promedio de: " + promedio + " segundos.";
+            return respuesta;
+        }
+        return respuesta;
+    }
+
+    public String obtenerPromedioCajas() {
+        String respuesta = "No hay historial";
+        if (historial.getSize() == 0) {
+            JOptionPane.showMessageDialog(null, respuesta);
+        } else {
+
+            double sumaTiempos = 0;
+            double promedio = 0;
+            int contador = 0;
+            for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
+                double temp = 0;
+                temp = historial.encontrarTiempoAtencion(i);
+                sumaTiempos += temp;
+                contador++;
+
+                promedio = sumaTiempos / contador;
+            }
+            respuesta = "El promedio de atencion de todas las cajas es de: " + promedio + " segundos.";
+            return respuesta;
+        }
+        return respuesta;
+    }
 }
