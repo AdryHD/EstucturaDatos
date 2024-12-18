@@ -39,19 +39,20 @@ public class Cola {
       return firstTiquete;
         }
 
-    public boolean encontrar(int n) {
+    public int encontrar(int n) {
+        int contador=0;
         if (this.esVacia()) {
-            return false;
+            return 0;
         } else {
             Nodo aux = prim;
             while (aux != null) {
                 if (n == aux.getNumDato().getCajaAsignada()) {
-                    return true;
+                    contador+=1;
                 }
                 aux = aux.getSig();
             }
 
-            return false;
+            return contador;
         }
 
     }

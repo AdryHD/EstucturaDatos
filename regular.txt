@@ -1,4 +1,36 @@
 **************Nuevo Tiquete********************
-Tiquete [Nombre=Adriana, ID=32, Edad=35, Tramite=2, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T16:52:51.335116, Hora Atención=2024-12-17T16:52:51.335128, Caja Asignada=1]
+Tiquete [Nombre=Blanka, ID=12, Edad=50, Tramite=2, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T22:29:01.632794, Hora Atención=2024-12-17T23:01:10.163887, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Champo, ID=13, Edad=2, Tramite=1, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T22:54:28.698622, Hora Atención=-999999999-01-01T00:00, Caja Asignada=2]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Missy, ID=14, Edad=6, Tramite=2, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T22:54:57.956761, Hora Atención=-999999999-01-01T00:00, Caja Asignada=3]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Raul, ID=15, Edad=2, Tramite=3, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T22:55:32.722295, Hora Atención=-999999999-01-01T00:00, Caja Asignada=2]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Happy, ID=16, Edad=12, Tramite=3, Tramite2=2, Tipo=1, Hora Creación=2024-12-17T22:56:34.098174, Hora Atención=-999999999-01-01T00:00, Caja Asignada=3]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Adry, ID=17, Edad=35, Tramite=1, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T22:58:07.644910, Hora Atención=-999999999-01-01T00:00, Caja Asignada=2]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Starscream, ID=18, Edad=500, Tramite=1, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T23:00:26.084925, Hora Atención=-999999999-01-01T00:00, Caja Asignada=3]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Goku, ID=19, Edad=30, Tramite=1, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T23:01:46.030384, Hora Atención=-999999999-01-01T00:00, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Maestro Roshi, ID=20, Edad=55, Tramite=1, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T23:02:18.316258, Hora Atención=-999999999-01-01T00:00, Caja Asignada=1]
 
 ***********************************************

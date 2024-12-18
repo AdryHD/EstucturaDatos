@@ -16,7 +16,7 @@ public class Tiquete {
     private int cajaAsignada;
 
     // Constructor
-    public Tiquete(String nombre, int id, int edad, int tramite, int tramite2, int tipo) {
+    public Tiquete(String nombre, int id, int edad, int tramite, int tramite2, int caja) {
         this.nombre = nombre;
         this.id = id;
         this.edad = edad;
@@ -25,7 +25,7 @@ public class Tiquete {
         this.tipo = tipo;
         this.horaCreacion = horaCreacion; // Hora de creación, obtiene la hora actual del sistema
         this.horaAtencion = null; // Se asignará cuando el tiquete sea atendido
-        this.cajaAsignada = tipo; // Se asignará una caja cuando el tiquete sea atendido
+        this.cajaAsignada = caja; // Se asignará una caja cuando el tiquete sea atendido
     }
 
     public Tiquete() {

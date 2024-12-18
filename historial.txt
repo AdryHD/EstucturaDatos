@@ -30,3 +30,51 @@ Tiquete [Nombre=oscar, ID=32, Edad=2, Tramite=2, Tramite2=0, Tipo=2, Hora Creaci
 Tiquete [Nombre=andres, ID=33, Edad=2, Tramite=1, Tramite2=0, Tipo=2, Hora Creación=2024-12-17T17:06:30.070669, Hora Atención=2024-12-17T17:06:35.963830, Caja Asignada=4]
 
 ***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Adriana, ID=32, Edad=35, Tramite=2, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T16:52:51.335116, Hora Atención=2024-12-17T16:52:51.335128, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Eddy, ID=1, Edad=35, Tramite=1, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T22:01:05.038779, Hora Atención=2024-12-17T22:56:52.897019, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Simba, ID=2, Edad=3, Tramite=3, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T22:01:36.868175, Hora Atención=2024-12-17T22:57:21.066578, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Chamu, ID=3, Edad=12, Tramite=2, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T22:05:07.642552, Hora Atención=2024-12-17T22:57:29.438365, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Spiry, ID=4, Edad=6, Tramite=3, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T22:09:59.125753, Hora Atención=2024-12-17T22:57:38.182846, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Adry, ID=5, Edad=36, Tramite=1, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T22:12:04.677893, Hora Atención=2024-12-17T22:57:39.563807, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=admin, ID=6, Edad=33, Tramite=2, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T22:14:18.681212, Hora Atención=2024-12-17T22:57:41.151596, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Mandrake, ID=7, Edad=55, Tramite=1, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T22:18:50.629676, Hora Atención=2024-12-17T22:57:43.229245, Caja Asignada=2]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Roldan, ID=8, Edad=36, Tramite=2, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T22:19:11.299746, Hora Atención=2024-12-17T22:59:20.450043, Caja Asignada=3]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Destro, ID=9, Edad=40, Tramite=3, Tramite2=0, Tipo=1, Hora Creación=2024-12-17T22:19:39.156195, Hora Atención=2024-12-17T22:59:25.553691, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Duke, ID=10, Edad=36, Tramite=1, Tramite2=2, Tipo=1, Hora Creación=2024-12-17T22:23:52.426066, Hora Atención=2024-12-17T22:59:38.589275, Caja Asignada=1]
+
+***********************************************
+**************Nuevo Tiquete********************
+Tiquete [Nombre=Megatron, ID=11, Edad=500, Tramite=1, Tramite2=3, Tipo=1, Hora Creación=2024-12-17T22:28:32.382218, Hora Atención=2024-12-17T23:01:08.366058, Caja Asignada=1]
+
+***********************************************

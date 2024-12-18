@@ -201,7 +201,9 @@ public class Menu {
         Tiquete tiquete = new Tiquete();
         boolean creado = true;
         int opc = 0;
-        int a = 1;
+        int cajaMenor = 0;
+        int menorValor = 0;
+        int temp = 0;
         int reply = 0;
         try {
             do {
@@ -257,24 +259,33 @@ public class Menu {
                         tiquete.setHoraAtencion(LocalDateTime.now());
                         tiquete.setCajaAsignada(1);
                     } else {
-                        tiquete.setCajaAsignada(2);
-                        tiquete.setHoraAtencion(LocalDateTime.MIN);
-                    }/*
-                        for (int i = 0; i < cajaRegular.getSize(); i++) {
-                            for (int j = 0; j < bancoConfig.getTotalCajas(); j++) {
-                                if (cajaRegular.encontrar(j + 1) == true) {
-                                                                                 //logica para encontrar cual caja tiene menos tiquetes aun en desarrollo
+                        cajaMenor = 1;
+                        menorValor = cajaRegular.getSize();
+                        for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
+                            temp=0;
+                           // System.out.println("Entra al primer for");
+                           temp=cajaRegular.encontrar(i);
+                           /* for (int j = 0; j < cajaRegular.getSize(); j++) {
+                                // System.out.println("Entra al segundo for");
+                                if (cajaRegular.encontrar(i) == true) {
+                                   //  System.out.println("Entra al primer if " + i);
+                                    temp += 1;
+                                  //  System.out.println("temp dentro del if => " + temp);
                                 }
+                            }*/
+                             System.out.println("temp antes del if => " + temp);
+                             System.out.println("Menor Valor antes del if => " + menorValor);
+                            if (temp < menorValor) {
+                                System.out.println("Entra al segundo if, temp => " + temp);
+                                System.out.println("Menor Valor " + menorValor);
+                                menorValor = temp;
+                                cajaMenor = i;
+                                temp = 0;
                             }
                         }
-                        for (int x = 0; x < bancoConfig.getTotalCajas(); x++) {
-                            if (contadorCajas[x] < a) {
-                                a = contadorCajas[x];
-                                tiquete.setCajaAsignada(x + 1);
-                            }
-                        }
-                    }*/
-
+                        tiquete.setCajaAsignada(cajaMenor);
+                        tiquete.setHoraAtencion(LocalDateTime.MIN);
+                    }
 
                     if (tiquete.getTipo() == 1) {
                         reply = JOptionPane.showConfirmDialog(null, "Desea agreagar otro tramite?", "Tramite Adicional", JOptionPane.YES_NO_OPTION);
@@ -418,9 +429,9 @@ public class Menu {
 
     public void atiendeTiquete(Cola cola) {
         if (cola.esVacia()) {
-        JOptionPane.showMessageDialog(null, "Ya no hay más tiquetes que atender");
-    } else {
-        
+            JOptionPane.showMessageDialog(null, "Ya no hay más tiquetes que atender");
+        } else {
+
         Tiquete t = new Tiquete();
         historial.encola(cola.getNodo());
         t = cola.atiende();

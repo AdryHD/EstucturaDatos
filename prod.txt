@@ -1,9 +1,5 @@
-Los Gatitos Malos
+Los Malandros
 3
 1
 1
-<<<<<<< HEAD
-33
-=======
-32
->>>>>>> 52d565141c72c49e1ac86850e38a1945e05a836a
+20
