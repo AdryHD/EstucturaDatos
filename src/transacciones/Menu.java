@@ -405,7 +405,7 @@ public class Menu {
     }
 
     public void cargarColas() {
-        //System.out.println("Cola al leer del txt");
+        
         System.out.println("*********Regular*********************");
         bancoConfig.crearCola("regular.txt", cajaRegular);
         System.out.println(cajaRegular.toString());
