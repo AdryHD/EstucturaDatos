@@ -381,12 +381,16 @@ public class Menu {
                     MenuReportes();
                     break;
                 case 4:
+                   // obtenerPromedioCajas();
                     //Hay un error en el metodo tiempoAtencion
                     //  System.out.println(reportes.tiempoAtencion(historial));
-                    //  JOptionPane.showMessageDialog(null, "El tiempo promedio de atención es: " + reportes.tiempoAtencion(historial) + "\n", "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
+                     JOptionPane.showMessageDialog(null,obtenerCajaMejorTiempo(), "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
                     MenuReportes();
                     break;
                 case 5:
+                    
+                    MenuReportes();
+                case 6:
                     MenuSecundario();
                     break;
                 default: {
@@ -440,8 +444,8 @@ public class Menu {
         } else {
 
             int cajaMenor = 1;
-            double menorValor = 1000;
-            double contadorTiempos = 0;
+            double menorValor = 100000;
+           // double contadorTiempos = 0;
             double promedio = 0;
             int contador = 0;
             for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
@@ -450,12 +454,10 @@ public class Menu {
                 if (temp < menorValor) {
                     menorValor = temp;
                     cajaMenor = i;
-                }
-                contador++;
-                contadorTiempos += temp;
-                promedio = contadorTiempos / contador;
-            }
-            respuesta = "La caja mejor tiempo es: Caja: " + cajaMenor + " con un promedio de: " + promedio + " segundos.";
+                }}
+                promedio = (menorValor / cajaRegular.encontrar(cajaMenor))/60;
+            
+            respuesta = String.format("La caja con mejor tiempo promedio de atención es: Caja: %d con un promedio de: %.2f minutos", cajaMenor, promedio);
             return respuesta;
         }
         return respuesta;
