@@ -346,9 +346,11 @@ public class Menu {
                     + "\n"
                     + "     3 - Reporte Cajas\n"
                     + "\n"
-                    + "     4 - Tiempo Promedio de Atención\n"
+                    + "     4 - Caja con Mejor tiempo Promedio de Atención\n"
                     + "\n"
-                    + "     5 - Salir\n"
+                    + "     5 - Tiempo Promedio de Atención general\n"
+                    + "\n"
+                    + "     6 - Salir\n"
                     + "\n"
                     + "\n", "Menú de Reportes", JOptionPane.WARNING_MESSAGE));
 
@@ -381,14 +383,11 @@ public class Menu {
                     MenuReportes();
                     break;
                 case 4:
-                   // obtenerPromedioCajas();
-                    //Hay un error en el metodo tiempoAtencion
-                    //  System.out.println(reportes.tiempoAtencion(historial));
                      JOptionPane.showMessageDialog(null,obtenerCajaMejorTiempo(), "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
                     MenuReportes();
                     break;
                 case 5:
-                    
+                    JOptionPane.showMessageDialog(null,obtenerPromedioCajas(), "Tiempo promedio", JOptionPane.WARNING_MESSAGE);
                     MenuReportes();
                 case 6:
                     MenuSecundario();
@@ -445,7 +444,6 @@ public class Menu {
 
             int cajaMenor = 1;
             double menorValor = 100000;
-           // double contadorTiempos = 0;
             double promedio = 0;
             int contador = 0;
             for (int i = 1; i <= bancoConfig.getTotalCajas(); i++) {
@@ -476,9 +474,8 @@ public class Menu {
                 double temp = 0;
                 temp = historial.encontrarTiempoAtencion(i);
                 sumaTiempos += temp;
-                contador++;
 
-                promedio = sumaTiempos / contador;
+                promedio = (sumaTiempos / historial.getSize())/60;
             }
             respuesta = "El promedio de atencion de todas las cajas es de: " + promedio + " segundos.";
             return respuesta;
